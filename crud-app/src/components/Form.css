@@ -1,0 +1,42 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.form-close-link {
+  text-align: end;
+}
+
+.close-form {
+  cursor: pointer;
+  margin-left: auto;
+  font-size: 18px;
+}
+
+.close-form:hover {
+  color: rgb(109, 109, 109);
+}
+
+.create-post-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 15px;
+}
+
+.input-form-area {
+  box-sizing: border-box;
+  font-size: 20px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 10px;
+  border: 2px solid black
+}
+
+.input-form-area:active {
+  border: none;
+}
