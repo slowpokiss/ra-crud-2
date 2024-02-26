@@ -1,6 +1,6 @@
-import { Link, useLoaderData } from "react-router-dom";
-import './MainPage.css'
-
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "./MainPage.css";
 
 interface postsIterface {
   id: number;
@@ -8,7 +8,14 @@ interface postsIterface {
 }
 
 export default function MainPage() {
-  let posts = useLoaderData();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:7070/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <>

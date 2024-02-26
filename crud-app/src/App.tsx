@@ -13,15 +13,6 @@ import { addPost } from "./components/CreatePostPage";
 import { editPost } from "./components/SinglePost";
 import SinglePost from "./components/SinglePost";
 
-
-const preLoader: LoaderFunction<any> = async ({
-  params,
-  request,
-}: LoaderFunctionArgs) => {
-  const response = await fetch("http://localhost:7070/posts");
-  return response.json();
-};
-
 const getCurrPostLoader: LoaderFunction<any> = async ({
   params,
   request,
@@ -33,8 +24,7 @@ const getCurrPostLoader: LoaderFunction<any> = async ({
 const routerProv = createBrowserRouter(
   createRoutesFromElements(
     <>
-      
-      <Route path="/" loader={preLoader} element={<MainPage />}></Route>
+      <Route path="/" element={<MainPage />}></Route>
       <Route
         path="/posts/new"
         action={addPost}

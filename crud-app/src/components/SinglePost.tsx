@@ -1,4 +1,4 @@
-import { useLoaderData, Link, redirect } from "react-router-dom";
+import { useLoaderData, Link, redirect, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import UpdatePostForm from "./UpdatePostForm";
 
@@ -24,6 +24,7 @@ export { editPost }
 export default function SinglePost() {
   const currPost = useLoaderData().post;
   const [state, setState] = useState<string>("initial");
+  const navigate = useNavigate()
 
   const deletePost = async (id: number) => {
     const response = await fetch(`http://localhost:7070/posts/${id}`, {
@@ -56,7 +57,7 @@ export default function SinglePost() {
 
         {state === "initial" ? (
           <div className="post-actions">
-            <div className="post-edit-btn post-action-btn" onClick={() =>onClick('edit')}>
+            <div className="post-edit-btn post-action-btn" onClick={() => onClick('edit')}>
               Изменить
             </div>
             <Link
